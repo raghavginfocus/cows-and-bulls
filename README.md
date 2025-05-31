@@ -11,4 +11,4 @@ Interactive: Allows players to input guesses, see history, and receive real-time
 
 Play Again: Restart the game with a new word after a successful guess.
 
-Feel free to fork the project, contribute, and improve the game!
+Feel free to fork the project, contribute, and improve the game! ....
