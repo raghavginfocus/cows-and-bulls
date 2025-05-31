@@ -29,6 +29,10 @@
             color: white;
             border: none;
             border-radius: 5px;
+            margin-left: 5px;
+        }
+        #revealBtn {
+            background: #d9534f;
         }
         #result {
             margin-top: 20px;
@@ -45,6 +49,11 @@
             color: green;
             font-size: 24px;
         }
+        #answer {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #b22222;
+        }
     </style>
 </head>
 <body>
@@ -54,6 +63,8 @@
 
     <input type="text" id="guessInput" maxlength="4" placeholder="Enter 4 letters">
     <button onclick="makeGuess()">Guess</button>
+    <button onclick="revealAnswer()" id="revealBtn">Reveal Answer</button>
+    <div id="answer"></div>
 
     <div id="result">
         <ul id="history"></ul>
@@ -72,7 +83,7 @@
         
         // Pick a random 4-letter word
         secretWord = words[Math.floor(Math.random() * words.length)];
-        console.log('Secret Word (for debug):', secretWord); // Remove later
+        console.log('Secret Word (for debug):', secretWord); // Remove or comment out in production
     }
 
     async function startGame() {
@@ -118,11 +129,12 @@
         }
 
         history.push(`${guess} - 🐂 Bulls: ${bulls}, 🐮 Cows: ${cows}`);
-
         updateHistory();
 
         if (bulls === 4) {
             document.getElementById('result').innerHTML = `<p class="win">🎉 You guessed it right: ${secretWord}!</p>`;
+            document.getElementById('revealBtn').disabled = true;
+            document.getElementById('revealBtn').style.opacity = '0.5';
         }
     }
 
@@ -136,8 +148,14 @@
         }
     }
 
+    function revealAnswer() {
+        document.getElementById('answer').textContent = `The secret word is: ${secretWord}`;
+        document.getElementById('revealBtn').disabled = true;
+        document.getElementById('revealBtn').style.opacity = '0.5';
+    }
+
     startGame();
-</script>
+    </script>
 
 </body>
 </html>
