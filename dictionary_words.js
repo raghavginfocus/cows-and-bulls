@@ -9865,6 +9865,7 @@ const dictionaryWords = [
   "COPY",
   "BOTH",
   "BEEF",
+  "HELL",
   "CALM",
   "AGED",
   "DARK",
