@@ -183,7 +183,12 @@
         updateHistory();
 
         if (bulls === 4) {
-          document.getElementById("result").innerHTML = `<p class="win">🎉 You guessed it right: ${secretWord}!</p>`;
+          // document.getElementById("result").innerHTML = `<p class="win">🎉 You guessed it right: ${secretWord}!</p>`;
+          const winMsg = document.createElement("p");
+          winMsg.className = "win";
+          winMsg.textContent = `🎉 You guessed it right: ${secretWord}!`;
+          document.getElementById("result").appendChild(winMsg);
+
           document.getElementById("revealBtn").disabled = true;
           document.getElementById("revealBtn").style.opacity = "0.5";
         }
