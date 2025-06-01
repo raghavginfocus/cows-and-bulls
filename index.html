@@ -47,6 +47,7 @@
     <input type="text" id="guessInput" maxlength="4" placeholder="Enter 4 letters">
     <button onclick="makeGuess()">Guess</button>
     <button onclick="revealAnswer()" id="revealBtn">Reveal Answer</button>
+    <button onclick="resetGame()">Reset Game</button>
     <div id="answer"></div>
 
     <div id="result">
@@ -65,6 +66,17 @@
     function startGame() {
         loadWords();
     }
+
+    function resetGame() {
+    loadWords();
+    history.length = 0;
+    updateHistory();
+    document.getElementById('result').innerHTML = `<ul id="history"></ul>`;
+    document.getElementById('answer').textContent = '';
+    document.getElementById('revealBtn').disabled = false;
+    document.getElementById('revealBtn').style.opacity = '1';
+    }
+
 
     function makeGuess() {
         const guessInput = document.getElementById('guessInput');
