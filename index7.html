@@ -133,11 +133,19 @@
       loadWords();
     }
 
-    function isValidDictionaryWord(word) {
-      return dictionaryWords.includes(word.toLowerCase());
+    async function isValidDictionaryWord(word) {
+      try {
+        const response = await fetch(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${word.toLowerCase()}`
+        );
+        return response.ok;
+      } catch (error) {
+        console.error("Error checking dictionary:", error);
+        return false;
+      }
     }
 
-    function makeGuess() {
+    async function makeGuess() {
       const guessInput = document.getElementById("guessInput");
       const guess = guessInput.value.toUpperCase();
       guessInput.value = "";
@@ -147,8 +155,9 @@
         return;
       }
 
-      if (!isValidDictionaryWord(guess)) {
-        alert(`"${guess}" is not a valid word in the dictionary.`);
+      const isValid = await isValidDictionaryWord(guess);
+      if (!isValid) {
+        alert(`"${guess}" is not a valid English word.`);
         return;
       }
 
