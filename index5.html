@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
             text-align: center;
             padding: 50px;
         }
-        h1 { color: #333; display: inline; }
+        h1 { color: #333; }
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -30,42 +31,17 @@
             margin-left: 5px;
         }
         #revealBtn { background: #d9534f; }
-        #helpBtn {
-            background: #007bff;
-            color: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            font-weight: bold;
-            border: none;
-            margin-left: 10px;
-        }
         #result { margin-top: 20px; }
         ul { list-style: none; padding: 0; }
         li { margin: 10px 0; font-size: 18px; }
         .win { color: green; font-size: 24px; }
         #answer { margin-top: 15px; font-size: 20px; color: #b22222; }
-        #helpText {
-            background: #fff;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-top: 10px;
-            display: none;
-            width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            font-size: 14px;
-        }
     </style>
     <script src="dictionary_words.js"></script>
 </head>
 <body>
 
     <h1>Cows and Bulls 🐮🐂</h1>
-    <button onclick="showHelp()" id="helpBtn">?</button>
-    
     <p>Guess the 4-letter word!</p>
 
     <input type="text" id="guessInput" maxlength="4" placeholder="Enter 4 letters">
@@ -73,16 +49,6 @@
     <button onclick="revealAnswer()" id="revealBtn">Reveal Answer</button>
     <button onclick="resetGame()">Reset Game</button>
     <div id="answer"></div>
-
-    <div id="helpText">
-        <strong>What is Cows and Bulls?</strong><br>
-        Guess a secret 4-letter word.<br>
-        <ul style="text-align:left">
-            <li>🐂 <strong>Bull</strong>: Correct letter in the correct position.</li>
-            <li>🐮 <strong>Cow</strong>: Correct letter in the wrong position.</li>
-        </ul>
-        Try to get 4 Bulls to win!
-    </div>
 
     <div id="result">
         <ul id="history"></ul>
@@ -100,6 +66,17 @@
     function startGame() {
         loadWords();
     }
+
+    function resetGame() {
+    loadWords();
+    history.length = 0;
+    updateHistory();
+    document.getElementById('result').innerHTML = `<ul id="history"></ul>`;
+    document.getElementById('answer').textContent = '';
+    document.getElementById('revealBtn').disabled = false;
+    document.getElementById('revealBtn').style.opacity = '1';
+    }
+
 
     function makeGuess() {
         const guessInput = document.getElementById('guessInput');
@@ -160,21 +137,6 @@
         document.getElementById('answer').textContent = `The secret word is: ${secretWord}`;
         document.getElementById('revealBtn').disabled = true;
         document.getElementById('revealBtn').style.opacity = '0.5';
-    }
-
-    function resetGame() {
-        loadWords();
-        history.length = 0;
-        updateHistory();
-        document.getElementById('result').innerHTML = `<ul id="history"></ul>`;
-        document.getElementById('answer').textContent = '';
-        document.getElementById('revealBtn').disabled = false;
-        document.getElementById('revealBtn').style.opacity = '1';
-    }
-
-    function showHelp() {
-        const help = document.getElementById('helpText');
-        help.style.display = help.style.display === 'none' ? 'block' : 'none';
     }
 
     startGame();
