@@ -1,0 +1,21 @@
+const dictionaryWords = [
+    "ABLE",
+    "ALSO",
+    "ACID",
+    "AGES",
+    "ARMY",
+    "AREA",
+    "AUNT",
+    "ASKS",
+    "AUTO",
+    "AXIS",
+    "AMEN",
+    "ARTS",
+    "ACTS",
+    "AIMS",
+    "ARCH",
+    "ACRE",
+    "AMID",
+    "AVER",
+    "ABET"
+]
