@@ -1,4 +1,4 @@
 const dictionaryWords = [
-    "able",
-    "also"
+    "ABLE",
+    "ALSO"
 ]
