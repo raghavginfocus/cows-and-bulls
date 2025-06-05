@@ -1,16 +1,9 @@
-# cows-and-bulls
-Cows and Bulls Game is a classic word-guessing game where the player attempts to guess a 4-letter secret word chosen by the computer. For each guess, the game provides feedback in the form of "cows" (correct letters in the wrong position) and "bulls" (correct letters in the correct position). The game continues until the player guesses the word correctly, earning 4 bulls.
+# Cows and Bulls Android App
 
-This project features:
+This repository contains a minimal Android app skeleton for the Cows and Bulls game.
 
-Levels: Easy, Medium, and Hard, based on word difficulty.
+To build the app, open the project in Android Studio and sync the Gradle files.
 
-Dictionary-based: The game pulls words from an online dictionary and adjusts the level of difficulty accordingly.
-
-Interactive: Allows players to input guesses, see history, and receive real-time feedback.
-
-Play Again: Restart the game with a new word after a successful guess.
-
-Feel free to fork the project, contribute, and improve the game! ....
-
-Access the site at - https://raghavginfocus.github.io/cows-and-bulls/
+The app now includes a dictionary of four-letter words located at
+`app/src/main/res/raw/dictionary.txt`. When the app starts it loads this list
+and displays the number of words available.
