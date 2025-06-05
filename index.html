@@ -12,10 +12,12 @@
 
   <p>Guess the 4-letter word!</p>
 
-  <input type="text" id="guessInput" maxlength="4" placeholder="Enter 4 letters" />
-  <button onclick="makeGuess()">Guess</button>
-  <button onclick="revealAnswer()" id="revealBtn">Reveal Answer</button>
-  <button onclick="resetGame()">Reset Game</button>
+  <div class="controls">
+    <input type="text" id="guessInput" maxlength="4" placeholder="Enter 4 letters" />
+    <button onclick="makeGuess()">Guess</button>
+    <button onclick="revealAnswer()" id="revealBtn">Reveal Answer</button>
+    <button onclick="resetGame()">Reset Game</button>
+  </div>
   <div id="answer"></div>
 
   <div id="helpText">
