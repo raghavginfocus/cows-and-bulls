@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CowsAndBulls</string>
+    <string name="words_loaded">Loaded %1$d words</string>
+</resources>
