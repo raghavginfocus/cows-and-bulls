@@ -107,5 +107,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
+  document.getElementById("guessInput").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      makeGuess();
+    }
+  });
+
   startGame();
 });
